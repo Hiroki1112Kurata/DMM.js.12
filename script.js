@@ -1,9 +1,12 @@
 // （API_KEY には、"取得したAPIキー" を記述）
+// const name1 = value1 [, name2 = value2 [, ... [, nameN = valueN]]]; →定数
 const API_KEY = "d96779a13ee212c01a8d954fdea1d04a";
 
 $(function(){
   $('#btn').on('click', function() {
+
     // 入力された都市名でWebAPIに天気情報をリクエスト
+    // Ajax →「Asynchronous JavaScript + XML」
     $.ajax({
       url: "https://api.openweathermap.org/data/2.5/weather?q=" + $('#cityname').val() + "&units=metric&appid=" + API_KEY,
 
@@ -11,7 +14,7 @@ $(function(){
       // 今回はJSONで受け取りたいので、 dataType : 'jsonp',と記述する。
       dataType : 'jsonp',
 
-    // done() →通信に成功した場合に記述するメソッド
+       // done() →通信に成功した場合に記述するメソッド
     }).done(function (data){
       //通信成功
       // 位置
